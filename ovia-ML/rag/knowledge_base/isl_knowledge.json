@@ -1,0 +1,128 @@
+[
+  {
+    "id": "doc_isl_overview",
+    "title": "Indian Sign Language (ISL) Fundamentals",
+    "category": "overview",
+    "lesson_id": null,
+    "sign_label": null,
+    "reference_image_url": null,
+    "content": "Indian Sign Language (ISL) is a complete, natural language used by deaf communities across India. Unlike British Sign Language (BSL) or American Sign Language (ASL), ISL utilizes its own distinct grammatical structure, phonology, and vocabulary. Many static ISL alphabets utilize two hands, whereas numbers from 1 to 5 are commonly articulated with a single hand with the palm facing forward. Proper facial expression (non-manual markers) and spatial awareness are integral to natural communication in ISL."
+  },
+  {
+    "id": "doc_sign_A",
+    "title": "ISL Sign for Alphabet 'A'",
+    "category": "alphabet",
+    "lesson_id": 1,
+    "sign_label": "A",
+    "reference_image_url": "/static/uploads/signs/A.svg",
+    "content": "How to perform the ISL sign for 'A': Form a closed fist with your dominant hand, keeping all four fingers curled tightly inward into the palm. Place the thumb straight and resting along the outer side of the curled index finger, pointing upward. Hold the hand steady at chest height with the palm facing towards the viewer. Common mistakes include tucking the thumb under the fingers (which resembles 'S' or 'E') or tilting the wrist excessively."
+  },
+  {
+    "id": "doc_sign_B",
+    "title": "ISL Sign for Alphabet 'B'",
+    "category": "alphabet",
+    "lesson_id": 2,
+    "sign_label": "B",
+    "reference_image_url": "/static/uploads/signs/B.svg",
+    "content": "How to perform the ISL sign for 'B': Extend all four fingers (index, middle, ring, pinky) straight upwards and keep them pressed tightly together. Fold your thumb across the lower portion of the palm. Keep the palm flat and oriented directly toward the observer. Ensure the fingers are fully straightened without bending at the knuckles."
+  },
+  {
+    "id": "doc_sign_C",
+    "title": "ISL Sign for Alphabet 'C'",
+    "category": "alphabet",
+    "lesson_id": 3,
+    "sign_label": "C",
+    "reference_image_url": "/static/uploads/signs/C.svg",
+    "content": "How to perform the ISL sign for 'C': Curve all four fingers together in a smooth semi-circular arch. Position the thumb opposite the fingertips to form the visible shape of the letter 'C'. Turn the hand so the side profile of the 'C' is visible to the viewer or camera. Keep wrist relaxed."
+  },
+  {
+    "id": "doc_sign_D",
+    "title": "ISL Sign for Alphabet 'D'",
+    "category": "alphabet",
+    "lesson_id": 4,
+    "sign_label": "D",
+    "reference_image_url": "/static/uploads/signs/D.svg",
+    "content": "How to perform the ISL sign for 'D': In one-handed representation, extend the index finger vertically pointing upward while the thumb, middle, ring, and pinky touch together at their tips to form a circular base. In classical two-handed ISL, the non-dominant index finger forms a vertical stem while the dominant hand forms an arc against it."
+  },
+  {
+    "id": "doc_sign_K",
+    "title": "ISL Sign for Alphabet 'K'",
+    "category": "alphabet",
+    "lesson_id": 11,
+    "sign_label": "K",
+    "reference_image_url": "/static/uploads/signs/K.svg",
+    "content": "How to perform the ISL sign for 'K': Extend both the index and middle fingers upward in a 'V' shape. Place the thumb resting between the base of the index and middle fingers. The ring and little fingers remain folded into the palm. Maintain the palm facing forward with the hand vertical at shoulder height."
+  },
+  {
+    "id": "doc_sign_L",
+    "title": "ISL Sign for Alphabet 'L'",
+    "category": "alphabet",
+    "lesson_id": 12,
+    "sign_label": "L",
+    "reference_image_url": "/static/uploads/signs/L.svg",
+    "content": "How to perform the ISL sign for 'L': Extend the index finger straight up and extend the thumb perpendicular at a 90-degree angle to the side, forming a clear 'L' shape. Keep the middle, ring, and pinky curled into the palm. The palm faces forward."
+  },
+  {
+    "id": "doc_sign_V",
+    "title": "ISL Sign for Alphabet 'V'",
+    "category": "alphabet",
+    "lesson_id": 22,
+    "sign_label": "V",
+    "reference_image_url": "/static/uploads/signs/V.svg",
+    "content": "How to perform the ISL sign for 'V': Extend your index finger and middle finger upwards, separating them to form a distinct 'V' shape. Fold your thumb across your curled ring and pinky fingers. Keep your palm facing toward the camera or recipient."
+  },
+  {
+    "id": "doc_num_1",
+    "title": "ISL Sign for Number '1'",
+    "category": "number",
+    "lesson_id": 27,
+    "sign_label": "1",
+    "reference_image_url": "/static/uploads/signs/1.svg",
+    "content": "How to sign the number 1 in ISL: Raise your dominant index finger vertically upwards while keeping the thumb folded over the middle, ring, and pinky fingers. The back of the hand or palm should face slightly towards the viewer at chest level. Do not slant the index finger."
+  },
+  {
+    "id": "doc_num_2",
+    "title": "ISL Sign for Number '2'",
+    "category": "number",
+    "lesson_id": 28,
+    "sign_label": "2",
+    "reference_image_url": "/static/uploads/signs/2.svg",
+    "content": "How to sign the number 2 in ISL: Extend both the index and middle fingers upward side-by-side or slightly parted, with thumb folding down the ring and pinky fingers. Palm faces forward."
+  },
+  {
+    "id": "doc_num_3",
+    "title": "ISL Sign for Number '3'",
+    "category": "number",
+    "lesson_id": 29,
+    "sign_label": "3",
+    "reference_image_url": "/static/uploads/signs/3.svg",
+    "content": "How to sign the number 3 in ISL: Extend thumb, index, and middle fingers outward or extend index, middle, and ring fingers depending on dialect. In standardized Indian Sign Language educational curricula, extending index, middle, and ring fingers while thumb secures pinky is commonly taught for 3."
+  },
+  {
+    "id": "doc_num_5",
+    "title": "ISL Sign for Number '5'",
+    "category": "number",
+    "lesson_id": 31,
+    "sign_label": "5",
+    "reference_image_url": "/static/uploads/signs/5.svg",
+    "content": "How to sign the number 5 in ISL: Open your dominant hand with all five fingers (thumb, index, middle, ring, pinky) fully extended and comfortably spaced apart. Palm faces forward towards the recipient."
+  },
+  {
+    "id": "doc_num_8",
+    "title": "ISL Sign for Number '8'",
+    "category": "number",
+    "lesson_id": 34,
+    "sign_label": "8",
+    "reference_image_url": "/static/uploads/signs/8.svg",
+    "content": "How to sign the number 8 in ISL: In standard two-handed ISL number convention, the non-dominant hand shows a 5 (open palm, 5 fingers) while the dominant hand displays 3 extended fingers beside it, totaling 8. In single-handed convention, the middle finger bends down to touch the thumb while index, ring, and pinky stay extended."
+  },
+  {
+    "id": "doc_practice_tips",
+    "title": "Webcam Practice and Sign Recognition Tips",
+    "category": "practice_tips",
+    "lesson_id": null,
+    "sign_label": null,
+    "reference_image_url": null,
+    "content": "Best practices for accurate webcam sign recognition: 1. Lighting: Ensure light falls on the front of your hands rather than behind you. 2. Framing: Keep your hand centered within the camera box at chest or shoulder level. 3. Contrast: Avoid wearing gloves or backgrounds that match your skin tone closely. 4. Stability: Hold the sign steady for 1-2 seconds so the camera captures clear, blur-free landmarks."
+  }
+]

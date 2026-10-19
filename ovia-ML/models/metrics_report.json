@@ -1,0 +1,43 @@
+{
+  "model_type": "RandomForestClassifier",
+  "n_estimators": 100,
+  "input_features": 63,
+  "classes_count": 30,
+  "test_accuracy": 0.9093333333333333,
+  "classes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "classification_summary": {
+    "macro_avg_f1": 0.9095449771410107,
+    "weighted_avg_f1": 0.9085307952052781
+  }
+}

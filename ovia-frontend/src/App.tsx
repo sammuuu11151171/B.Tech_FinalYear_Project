@@ -1,122 +1,105 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
+import { AuthProvider } from './contexts/AuthContext';
+import { AccessibilityProvider } from './contexts/AccessibilityContext';
 
+import { PublicLayout } from './layouts/PublicLayout';
+import { StudentLayout } from './layouts/StudentLayout';
+import { AdminLayout } from './layouts/AdminLayout';
+
+import { LandingPage } from './pages/public/LandingPage';
+import { LoginPage } from './pages/public/LoginPage';
+import { RegisterPage } from './pages/public/RegisterPage';
+import { UnauthorizedPage } from './pages/public/UnauthorizedPage';
+
+import { StudentDashboard } from './pages/student/StudentDashboard';
+import { LearnPage } from './pages/student/LearnPage';
+import { LessonDetailPage } from './pages/student/LessonDetailPage';
+import { QuizzesPage } from './pages/student/QuizzesPage';
+import { QuizAttemptPage } from './pages/student/QuizAttemptPage';
+import { AITutorPage } from './pages/student/AITutorPage';
+import { ProgressPage } from './pages/student/ProgressPage';
+import { ProfilePage } from './pages/student/ProfilePage';
+
+import './App.css';
+
+function AdminDashboardPage() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>OVIA - One Voice, Inclusive Access!!</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+    <main className="ovia-admin-page">
+      <header className="ovia-admin-header">
+        <p className="ovia-admin-eyebrow">OVIA MANAGEMENT</p>
+        <h1>Admin Dashboard</h1>
+        <p>Overview of the inclusive learning portal.</p>
+      </header>
+
+      <section className="ovia-admin-grid">
+        <article className="ovia-admin-card">
+          <h2>User Management</h2>
+          <p>Manage student accounts and user access in a future release.</p>
+          <span className="ovia-admin-status">Coming soon</span>
+        </article>
+
+        <article className="ovia-admin-card">
+          <h2>Learning Content</h2>
+          <p>Review learning materials and lessons in a future release.</p>
+          <span className="ovia-admin-status">Coming soon</span>
+        </article>
+
+        <article className="ovia-admin-card">
+          <h2>System Overview</h2>
+          <p>Monitor application activity when the required APIs are connected.</p>
+          <span className="ovia-admin-status">Coming soon</span>
+        </article>
       </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    </main>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <AuthProvider>
+      <AccessibilityProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<PublicLayout />}>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route
+                path="/unauthorized"
+                element={<UnauthorizedPage />}
+              />
+            </Route>
+
+            <Route path="/student" element={<StudentLayout />}>
+              <Route index element={<StudentDashboard />} />
+              <Route path="learn" element={<LearnPage />} />
+              <Route path="learn/:id" element={<LessonDetailPage />} />
+              <Route path="quizzes" element={<QuizzesPage />} />
+              <Route path="quizzes/:id" element={<QuizAttemptPage />} />
+              <Route path="ai-tutor" element={<AITutorPage />} />
+              <Route path="progress" element={<ProgressPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
+
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboardPage />} />
+            </Route>
+
+            <Route
+              path="/learn"
+              element={<Navigate to="/student/learn" replace />}
+            />
+
+            <Route
+              path="*"
+              element={<Navigate to="/" replace />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </AccessibilityProvider>
+    </AuthProvider>
+  );
+}
+
+export default App;
