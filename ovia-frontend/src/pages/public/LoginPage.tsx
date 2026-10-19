@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Lock, Mail, ArrowRight, ShieldCheck, UserCheck } from 'lucide-react';
+import { Lock, Mail, ArrowRight } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../../components/common/Button';
 import { Alert } from '../../components/common/Alert';
@@ -23,10 +23,10 @@ export const LoginPage: React.FC = () => {
       const user = await login(email, password);
       if (user.role === 'admin') {
         navigate('/admin');
-      } else if (user.role === 'teacher') {
-        navigate('/teacher');
-      } else {
+      } else if (user.role === 'student') {
         navigate('/student');
+      } else {
+        navigate('/unauthorized');
       }
     } catch (err: any) {
       setError(err.message || 'Login failed. Please verify your credentials.');
@@ -36,14 +36,11 @@ export const LoginPage: React.FC = () => {
   };
 
   // Demo accounts helper for reviewers & final year evaluation
-  const setDemoAccount = (role: 'student' | 'teacher' | 'admin') => {
+  const setDemoAccount = (role: 'student' | 'admin') => {
     if (role === 'student') {
       setEmail('student@ovia.edu');
       setPassword('Student@ovia2026');
-    } else if (role === 'teacher') {
-      setEmail('teacher@ovia.edu');
-      setPassword('Teacher@ovia2026');
-    } else if (role === 'admin') {
+    } else {
       setEmail('admin@ovia.edu');
       setPassword('Admin@ovia2026');
     }
@@ -132,13 +129,6 @@ export const LoginPage: React.FC = () => {
               className="text-xs px-2.5 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-semibold border border-indigo-100 hover:bg-indigo-100 cursor-pointer"
             >
               Demo Student
-            </button>
-            <button
-              type="button"
-              onClick={() => setDemoAccount('teacher')}
-              className="text-xs px-2.5 py-1.5 rounded-lg bg-amber-50 text-amber-800 font-semibold border border-amber-100 hover:bg-amber-100 cursor-pointer"
-            >
-              Demo Teacher
             </button>
             <button
               type="button"

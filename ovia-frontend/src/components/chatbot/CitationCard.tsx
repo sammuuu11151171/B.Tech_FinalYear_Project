@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, ExternalLink, ShieldCheck } from 'lucide-react';
-import { SourceCitation } from '../../types';
+import type { SourceCitation } from '../../types';
 
 interface CitationCardProps {
   citation: SourceCitation;
+  onSelectSign?: (sign: string) => void;
 }
 
-export const CitationCard: React.FC<CitationCardProps> = ({ citation }) => {
+export const CitationCard: React.FC<CitationCardProps> = ({ citation, onSelectSign }) => {
   return (
     <div className="bg-white rounded-xl border border-indigo-100 p-3 shadow-2xs text-xs">
       <div className="flex items-start justify-between gap-2 mb-1">
         <span className="font-bold text-indigo-900 flex items-center gap-1">
           <BookOpen className="w-3.5 h-3.5 text-indigo-600" />
-          {citation.title}
+          {onSelectSign && citation.sign_label ? (
+            <button type="button" onClick={() => onSelectSign(citation.sign_label!)} className="text-left hover:underline">
+              {citation.title}
+            </button>
+          ) : citation.title}
         </span>
         <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 shrink-0">
           Grounded Source

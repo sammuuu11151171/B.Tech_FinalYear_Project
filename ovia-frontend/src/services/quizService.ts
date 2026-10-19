@@ -1,5 +1,5 @@
 import { apiRequest } from './api';
-import { Quiz, QuizDetail, QuizAttempt } from '../types';
+import type { Quiz, QuizDetail, QuizAttempt } from '../types';
 
 export const quizService = {
   getQuizzes: async (category?: string): Promise<Quiz[]> => {

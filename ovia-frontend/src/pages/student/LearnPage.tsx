@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, CheckCircle, Clock, ArrowRight, Eye } from 'lucide-react';
 import { lessonService } from '../../services/lessonService';
-import { Lesson } from '../../types';
+import type { Lesson } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { Badge } from '../../components/common/Badge';
 import { Button } from '../../components/common/Button';

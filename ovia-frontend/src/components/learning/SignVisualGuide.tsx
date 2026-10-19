@@ -1,6 +1,6 @@
 import React from 'react';
 import { Eye, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
-import { Lesson } from '../../types';
+import type { Lesson } from '../../types';
 import { Badge } from '../common/Badge';
 
 interface SignVisualGuideProps {

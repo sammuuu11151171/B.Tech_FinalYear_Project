@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookOpen, HelpCircle, Camera, Check, X } from 'lucide-react';
-import { RecentActivityItem } from '../../types';
+import type { RecentActivityItem } from '../../types';
 
 interface ActivityTimelineProps {
   activities: RecentActivityItem[];
@@ -34,8 +34,8 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({ activities }
       <div className="relative pl-6 space-y-6 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">
         {activities.map((act) => (
           <div key={act.id} className="relative group">
-            <div className="absolute -left-6 top-1 w-5 h-5 rounded-full bg-white border-2 border-indigo-500 flex items-center justify-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
+            <div className="absolute -left-7 top-0.5 w-6 h-6 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+              {getIcon(act.activity_type, act.is_positive)}
             </div>
             <div>
               <div className="flex items-center justify-between">

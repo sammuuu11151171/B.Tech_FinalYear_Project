@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertCircle, ArrowRight, RotateCcw } from 'lucide-react';
-import { SignRevisionItem } from '../../types';
+import type { SignRevisionItem } from '../../types';
 import { Button } from '../common/Button';
 import { Badge } from '../common/Badge';
 

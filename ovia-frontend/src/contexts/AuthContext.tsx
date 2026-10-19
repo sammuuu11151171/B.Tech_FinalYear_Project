@@ -1,5 +1,7 @@
+const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true';
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { User, UserRole } from '../types';
+import type { User, UserRole } from '../types';
 import { authService } from '../services/authService';
 
 interface AuthContextType {
@@ -24,26 +26,57 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [token, setToken] = useState<string | null>(() => localStorage.getItem('ovia_token'));
   const [loading, setLoading] = useState<boolean>(true);
 
+  // useEffect(() => {
+  //   const initAuth = async () => {
+  //     const storedToken = localStorage.getItem('ovia_token');
+  //     if (storedToken) {
+  //       try {
+  //         const profile = await authService.getMe();
+  //         setUser(profile);
+  //         localStorage.setItem('ovia_user', JSON.stringify(profile));
+  //       } catch (err) {
+  //         console.warn('Session expired or invalid, logging out.');
+  //         localStorage.removeItem('ovia_token');
+  //         localStorage.removeItem('ovia_user');
+  //         setToken(null);
+  //         setUser(null);
+  //       }
+  //     }
+  //     setLoading(false);
+  //   };
+  //   initAuth();
+  // }, []);
+
+
   useEffect(() => {
-    const initAuth = async () => {
-      const storedToken = localStorage.getItem('ovia_token');
-      if (storedToken) {
-        try {
-          const profile = await authService.getMe();
-          setUser(profile);
-          localStorage.setItem('ovia_user', JSON.stringify(profile));
-        } catch (err) {
-          console.warn('Session expired or invalid, logging out.');
-          localStorage.removeItem('ovia_token');
-          localStorage.removeItem('ovia_user');
-          setToken(null);
-          setUser(null);
-        }
-      }
+  const initAuth = async () => {
+    const storedToken = localStorage.getItem('ovia_token');
+
+    if (DEMO_MODE || !storedToken) {
       setLoading(false);
-    };
-    initAuth();
-  }, []);
+      return;
+    }
+
+    try {
+      const profile = await authService.getMe();
+      setUser(profile);
+      localStorage.setItem('ovia_user', JSON.stringify(profile));
+    } catch {
+      localStorage.removeItem('ovia_token');
+      localStorage.removeItem('ovia_user');
+      setToken(null);
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  void initAuth();
+}, []);
+
+
+
+
 
   const login = async (email: string, pass: string): Promise<User> => {
     setLoading(true);

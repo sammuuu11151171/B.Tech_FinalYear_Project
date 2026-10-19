@@ -12,9 +12,7 @@ export const Navbar: React.FC = () => {
 
   const getDashboardPath = () => {
     if (!user) return '/login';
-    if (user.role === 'admin') return '/admin';
-    if (user.role === 'teacher') return '/teacher';
-    return '/student';
+    return user.role === 'admin' ? '/admin' : '/student';
   };
 
   return (
@@ -67,7 +65,7 @@ export const Navbar: React.FC = () => {
                 <div className="hidden lg:flex items-center gap-2 pl-2 border-l border-slate-200">
                   <div className="text-right">
                     <p className="text-xs font-semibold text-slate-900">{user.full_name}</p>
-                    <Badge variant={user.role === 'admin' ? 'danger' : user.role === 'teacher' ? 'warning' : 'indigo'} size="sm">
+                    <Badge variant={user.role === 'admin' ? 'danger' : 'indigo'} size="sm">
                       {user.role}
                     </Badge>
                   </div>

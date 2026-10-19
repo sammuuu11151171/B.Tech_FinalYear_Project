@@ -27,12 +27,8 @@ export const RegisterPage: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      const user = await register(email, fullName, password, role);
-      if (user.role === 'teacher') {
-        navigate('/teacher');
-      } else {
-        navigate('/student');
-      }
+      await register(email, fullName, password, role);
+navigate('/student');
     } catch (err: any) {
       setError(err.message || 'Registration failed. Please try a different email.');
     } finally {

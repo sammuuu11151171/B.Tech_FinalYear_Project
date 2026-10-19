@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Clock, CheckCircle, XCircle, Award, RotateCcw } from 'lucide-react';
 import { quizService } from '../../services/quizService';
-import { QuizDetail, QuizAttempt } from '../../types';
+import type { QuizDetail, QuizAttempt } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { QuestionCard } from '../../components/quizzes/QuestionCard';
 import { Button } from '../../components/common/Button';

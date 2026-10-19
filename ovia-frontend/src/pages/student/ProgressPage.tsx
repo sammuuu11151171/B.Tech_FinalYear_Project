@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TrendingUp, BookOpen, Award, Camera, CheckCircle2 } from 'lucide-react';
 import { progressService } from '../../services/progressService';
-import { StudentDashboardSummary } from '../../types';
+import type { StudentDashboardSummary } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { Card } from '../../components/common/Card';
 import { Badge } from '../../components/common/Badge';

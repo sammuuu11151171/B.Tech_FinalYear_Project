@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Sparkles, BookOpen, HelpCircle } from 'lucide-react';
 import { chatbotService } from '../../services/chatbotService';
-import { ChatMessage, SourceCitation } from '../../types';
+import type { ChatMessage, SourceCitation } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { ChatMessageBubble } from '../../components/chatbot/ChatMessageBubble';
 import { Button } from '../../components/common/Button';

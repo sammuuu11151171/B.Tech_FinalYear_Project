@@ -1,6 +1,6 @@
 import React from 'react';
-import { Sparkles, User, ExternalLink } from 'lucide-react';
-import { SourceCitation } from '../../types';
+import { Sparkles, User } from 'lucide-react';
+import type { SourceCitation } from '../../types';
 import { CitationCard } from './CitationCard';
 
 interface ChatMessageBubbleProps {
@@ -70,7 +70,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {sources.map((cit, idx) => (
-                <CitationCard key={idx} citation={cit} />
+                <CitationCard key={idx} citation={cit} onSelectSign={onSelectSign} />
               ))}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Camera, CheckCircle2, Sparkles } from 'lucide-react';
-import { QuizQuestion } from '../../types';
+import type { QuizQuestion } from '../../types';
 import { Button } from '../common/Button';
 import { Badge } from '../common/Badge';
 import { WebcamPracticeModal } from '../webcam/WebcamPracticeModal';

@@ -31,13 +31,7 @@ export const TopBar: React.FC<TopBarProps> = ({ title, subtitle }) => {
                 {user.full_name}
               </span>
               <Badge
-                variant={
-                  user.role === 'admin'
-                    ? 'danger'
-                    : user.role === 'teacher'
-                    ? 'warning'
-                    : 'indigo'
-                }
+                variant={user.role === 'admin' ? 'danger' : 'indigo'}
                 size="sm"
               >
                 {user.role}

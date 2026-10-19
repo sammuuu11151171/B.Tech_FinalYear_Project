@@ -1,6 +1,6 @@
 import React from 'react';
 import { HelpCircle, Clock, Award, ArrowRight } from 'lucide-react';
-import { Quiz } from '../../types';
+import type { Quiz } from '../../types';
 import { Badge } from '../common/Badge';
 import { Button } from '../common/Button';
 

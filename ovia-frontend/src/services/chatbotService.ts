@@ -1,5 +1,5 @@
 import { apiRequest } from './api';
-import { ChatQueryResponse, ChatSession } from '../types';
+import type { ChatQueryResponse, ChatSession } from '../types';
 
 export const chatbotService = {
   ask: async (message: string, sessionId?: number): Promise<ChatQueryResponse> => {

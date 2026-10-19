@@ -14,7 +14,7 @@ import { Button } from '../common/Button';
 import { Badge } from '../common/Badge';
 import { recognitionService } from '../../services/recognitionService';
 import { lessonService } from '../../services/lessonService';
-import { PredictResponse } from '../../types';
+import type { PredictResponse } from '../../types';
 
 interface WebcamPracticeModalProps {
   isOpen: boolean;

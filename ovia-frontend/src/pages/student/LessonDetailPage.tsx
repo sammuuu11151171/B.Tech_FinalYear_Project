@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Camera, HelpCircle } from 'lucide-react';
 import { lessonService } from '../../services/lessonService';
-import { Lesson } from '../../types';
+import type { Lesson } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { SignVisualGuide } from '../../components/learning/SignVisualGuide';
 import { WebcamPracticeModal } from '../../components/webcam/WebcamPracticeModal';

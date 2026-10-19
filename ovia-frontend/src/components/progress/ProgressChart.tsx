@@ -29,6 +29,7 @@ export const ProgressChart: React.FC<ProgressChartProps> = ({
   const data = [
     { name: 'Lessons', Progress: completedLessons, Target: totalLessons },
     { name: 'Quizzes Attempted', Progress: quizzesAttempted, Target: 5 },
+    { name: 'Practice Attempts', Progress: practiceAttempts, Target: Math.max(practiceAttempts, 10) },
     { name: 'Quiz Avg %', Progress: averageScore, Target: 100 },
     { name: 'Sign Accuracy %', Progress: practiceAccuracy, Target: 100 },
   ];

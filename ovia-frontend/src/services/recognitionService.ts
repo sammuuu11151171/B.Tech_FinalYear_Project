@@ -1,5 +1,5 @@
 import { apiRequest } from './api';
-import { PredictResponse, LandmarkPoint } from '../types';
+import type { PredictResponse, LandmarkPoint } from '../types';
 
 export const recognitionService = {
   predictSign: async (params: {

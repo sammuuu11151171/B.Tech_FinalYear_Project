@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { progressService } from '../../services/progressService';
-import { StudentDashboardSummary } from '../../types';
+import type { StudentDashboardSummary } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { Card } from '../../components/common/Card';
 import { Badge } from '../../components/common/Badge';

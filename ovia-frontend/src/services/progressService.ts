@@ -1,5 +1,5 @@
 import { apiRequest } from './api';
-import { StudentDashboardSummary } from '../types';
+import type { StudentDashboardSummary } from '../types';
 
 export const progressService = {
   getMyProgressSummary: async (): Promise<StudentDashboardSummary> => {

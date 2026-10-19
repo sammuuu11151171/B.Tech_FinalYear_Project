@@ -1,5 +1,5 @@
 import { apiRequest } from './api';
-import { Lesson } from '../types';
+import type { Lesson } from '../types';
 
 export const lessonService = {
   getLessons: async (category?: string): Promise<Lesson[]> => {

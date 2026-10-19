@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HelpCircle, Award, CheckCircle, Clock } from 'lucide-react';
 import { quizService } from '../../services/quizService';
-import { Quiz, QuizAttempt } from '../../types';
+import type { Quiz, QuizAttempt } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { QuizCard } from '../../components/quizzes/QuizCard';
 import { Badge } from '../../components/common/Badge';
