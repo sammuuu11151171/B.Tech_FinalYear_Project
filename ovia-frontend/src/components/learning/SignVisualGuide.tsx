@@ -1,7 +1,8 @@
 import React from 'react';
-import { Eye, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import { Eye, CheckCircle2, AlertCircle } from 'lucide-react';
 import type { Lesson } from '../../types';
 import { Badge } from '../common/Badge';
+import { RobotIcon } from '../common/RobotIcon';
 
 interface SignVisualGuideProps {
   lesson: Lesson;
@@ -14,7 +15,7 @@ export const SignVisualGuide: React.FC<SignVisualGuideProps> = ({ lesson, onStar
   return (
     <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
       {/* Header */}
-      <div className="p-6 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-slate-50 to-indigo-50/30">
+      <div className="p-6 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4 bg-slate-50">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <Badge variant="indigo" size="sm">
@@ -93,7 +94,7 @@ export const SignVisualGuide: React.FC<SignVisualGuideProps> = ({ lesson, onStar
           {/* Practice Prompt Banner */}
           <div className="p-4 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-indigo-600 shrink-0" />
+              <RobotIcon className="w-5 h-5 text-indigo-600 shrink-0" />
               <div className="text-xs text-indigo-900">
                 <p className="font-semibold">Ready to test your hand pose?</p>
                 <p className="text-indigo-700">Open your camera to receive instant ML feedback.</p>

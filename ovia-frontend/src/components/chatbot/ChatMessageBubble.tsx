@@ -1,7 +1,8 @@
 import React from 'react';
-import { Sparkles, User } from 'lucide-react';
+import { User } from 'lucide-react';
 import type { SourceCitation } from '../../types';
 import { CitationCard } from './CitationCard';
+import { RobotIcon } from '../common/RobotIcon';
 
 interface ChatMessageBubbleProps {
   sender: 'user' | 'tutor';
@@ -25,10 +26,10 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
       {/* Avatar */}
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-          isUser ? 'bg-indigo-600 text-white' : 'bg-gradient-to-tr from-sky-500 to-indigo-600 text-white shadow-xs'
+          isUser ? 'bg-indigo-600 text-white' : 'bg-indigo-600 text-white shadow-xs'
         }`}
       >
-        {isUser ? <User className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
+        {isUser ? <User className="w-4 h-4" /> : <RobotIcon className="w-4 h-4" />}
       </div>
 
       {/* Message Content */}

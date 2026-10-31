@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ShieldCheck, Accessibility } from 'lucide-react';
+import { BrandMark } from './BrandMark';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,9 +11,7 @@ export const Footer: React.FC = () => {
           {/* Brand & Purpose */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold">
-                OV
-              </div>
+              <BrandMark className="h-8 w-8 rounded-lg" />
               <span className="text-xl font-bold text-white tracking-tight">OVIA</span>
             </div>
             <p className="text-slate-400 text-sm max-w-md leading-relaxed mb-4">

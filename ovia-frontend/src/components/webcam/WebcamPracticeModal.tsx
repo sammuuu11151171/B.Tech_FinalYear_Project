@@ -6,12 +6,12 @@ import {
   CheckCircle,
   AlertTriangle,
   HelpCircle,
-  Sparkles,
   Award,
 } from 'lucide-react';
 import { Modal } from '../common/Modal';
 import { Button } from '../common/Button';
 import { Badge } from '../common/Badge';
+import { RobotIcon } from '../common/RobotIcon';
 import { recognitionService } from '../../services/recognitionService';
 import { lessonService } from '../../services/lessonService';
 import type { PredictResponse } from '../../types';
@@ -257,7 +257,7 @@ export const WebcamPracticeModal: React.FC<WebcamPracticeModalProps> = ({
               isLoading={isEvaluating}
               disabled={!stream}
               variant="primary"
-              leftIcon={<Sparkles className="w-4 h-4" />}
+              leftIcon={<RobotIcon className="w-4 h-4" />}
             >
               Evaluate My Sign
             </Button>

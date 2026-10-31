@@ -9,6 +9,7 @@ import {
   User,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { BrandMark } from '../common/BrandMark';
 
 export const AdminSidebar: React.FC = () => {
   const { logout, user } = useAuth();
@@ -24,9 +25,7 @@ export const AdminSidebar: React.FC = () => {
   return (
     <aside className="w-64 bg-white border-r border-slate-200/80 flex flex-col h-full shrink-0">
       <div className="h-16 flex items-center px-6 border-b border-slate-100 gap-3">
-        <div className="w-8 h-8 rounded-lg bg-rose-600 flex items-center justify-center text-white font-bold text-sm">
-          OV
-        </div>
+        <BrandMark className="h-8 w-8 rounded-lg" />
         <div>
           <span className="font-bold text-base text-slate-900 block leading-tight">OVIA Admin</span>
           <span className="text-[11px] font-medium text-rose-600 uppercase tracking-wider">Super Administrator</span>

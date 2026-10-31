@@ -5,7 +5,6 @@ import {
   Camera,
   HelpCircle,
   TrendingUp,
-  Sparkles,
   Accessibility,
   ArrowRight,
   ShieldCheck,
@@ -16,34 +15,36 @@ import {
 import { Button } from '../../components/common/Button';
 import { Card } from '../../components/common/Card';
 import { Badge } from '../../components/common/Badge';
+import { BrandMark } from '../../components/common/BrandMark';
+import { RobotIcon } from '../../components/common/RobotIcon';
+import handBackground from '../../assets/hand-background.jpg';
 
 export const LandingPage: React.FC = () => {
   return (
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 md:pt-20 pb-16 bg-gradient-to-b from-indigo-50/50 via-white to-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold mb-6">
-              <Sparkles className="w-4 h-4 text-indigo-600" />
-              <span>AI-Powered Inclusive Learning for Deaf & Mute Learners</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
+      <section className="grid grid-cols-1 lg:min-h-[640px] lg:grid-cols-[1fr_2fr]">
+        <div className="relative min-h-[360px] overflow-hidden sm:min-h-[440px] lg:min-h-[640px]">
+          <img
+            src={handBackground}
+            alt="Hand demonstrating an Indian Sign Language gesture"
+            className="absolute inset-0 h-full w-full object-cover object-[center_55%]"
+          />
+        </div>
+        <div className="flex items-center bg-[#f4f0e7] px-6 py-14 sm:px-10 lg:px-12 xl:px-20">
+          <div className="mx-auto max-w-2xl">
+            <h1 className="mb-6 font-playfair text-[37px] font-black leading-tight tracking-tight text-slate-900 sm:text-[49px] lg:text-[49px] xl:text-[61px]">
               Learn Indian Sign Language with{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-600">
-                AI Vision & Feedback
-              </span>
+              <span className="text-indigo-600">OVIA, our one voice inclusive access platform</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              OVIA integrates verified ISL structured lessons, interactive webcam hand-gesture practice,
-              academic quizzes, transparent progress analytics, and a grounded RAG AI Tutor into one unified, accessible portal.
+            <p className="mb-8 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              OVIA is here to assist you in learning sign language and receiving academic help. Interactive lessons, practice sessions with gestures, quizzes, easy progress tracking, and our own AI tutor to help you search and learn. We'll show you the way!
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <Link to="/register">
-                <Button size="lg" variant="primary" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                <Button size="lg" variant="primary" rightIcon={<ArrowRight className="h-5 w-5" />}>
                   Start Learning Now
                 </Button>
               </Link>
@@ -54,18 +55,17 @@ export const LandingPage: React.FC = () => {
               </Link>
             </div>
 
-            {/* Visual Highlights Pill */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
+            <div className="mt-10 flex flex-col gap-3 text-s font-medium text-slate-500">
               <span className="inline-flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
+                <CheckCircle className="h-4 w-4 text-emerald-900" />
                 Verified ISL Static Alphabet & Numbers
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <VolumeX className="w-4 h-4 text-emerald-600" />
+                <VolumeX className="h-4 w-4 text-emerald-900" />
                 Audio-Free Visual Interface
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <ShieldCheck className="h-4 w-4 text-emerald-900" />
                 Privacy-Preserving Transient Frame Capture
               </span>
             </div>
@@ -76,14 +76,11 @@ export const LandingPage: React.FC = () => {
       {/* Core Problems & Why OVIA Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <Badge variant="indigo" size="sm" className="mb-2">
-            The Purpose
-          </Badge>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
             Addressing Core Challenges in ISL Education
           </h2>
-          <p className="text-sm text-slate-600 mt-3">
-            Designed to bridge the gap between static text explanations and practical, verifiable sign practice.
+          <p className="text-lg text-slate-600 mt-3">
+            Breaking down barriers that support learners to move from the read process and start understanding and practising sign language for themselves.
           </p>
         </div>
 
@@ -106,7 +103,7 @@ export const LandingPage: React.FC = () => {
                 <BookOpen className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Connected Learning</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Rather than forcing learners to use separate platforms for lesson content, camera testing, quizzes, and help, OVIA unites all capabilities in one cohesive ecosystem.
               </p>
             </div>
@@ -115,10 +112,10 @@ export const LandingPage: React.FC = () => {
           <Card className="flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 text-purple-600 flex items-center justify-center mb-4">
-                <Sparkles className="w-5 h-5" />
+                <RobotIcon className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Grounded AI Assistance</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 General LLMs can hallucinate sign instructions. OVIA's RAG AI Tutor retrieves exclusively from a curated ISL curriculum and provides direct links to verified lesson references.
               </p>
             </div>
@@ -130,7 +127,7 @@ export const LandingPage: React.FC = () => {
                 <TrendingUp className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Transparent Progress</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 When a learner struggles repeatedly with a specific sign, OVIA flags it for focused revision using real database records and transparent rules rather than black-box guesswork.
               </p>
             </div>
@@ -142,10 +139,10 @@ export const LandingPage: React.FC = () => {
       <section className="bg-slate-100/60 py-16 border-y border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
               The OVIA Learning Workflow
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-lg text-slate-600 mt-2">
               Four structured steps to build real mastery in Indian Sign Language.
             </p>
           </div>
@@ -156,7 +153,7 @@ export const LandingPage: React.FC = () => {
                 1
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Explore Lessons</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Study verified step-by-step visual breakdowns for alphabets and numbers with clear hand orientations.
               </p>
             </div>
@@ -166,7 +163,7 @@ export const LandingPage: React.FC = () => {
                 2
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Webcam Practice</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Initiate the camera to practice hand configurations. Receive instant computer vision feedback on sign correctness.
               </p>
             </div>
@@ -176,7 +173,7 @@ export const LandingPage: React.FC = () => {
                 3
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">Assess with Quizzes</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Validate recall through multiple-choice questions and interactive camera-based sign questions.
               </p>
             </div>
@@ -186,7 +183,7 @@ export const LandingPage: React.FC = () => {
                 4
               </div>
               <h3 className="text-base font-bold text-slate-900 mb-2">AI Tutor Guidance</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Ask questions at any time. Get verified answers and references from our curated ISL knowledge base.
               </p>
             </div>
@@ -196,10 +193,10 @@ export const LandingPage: React.FC = () => {
 
       {/* Accessibility Focus Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-8 lg:p-12 text-white border border-slate-800 shadow-xl">
+        <div className="bg-slate-900 rounded-3xl p-8 lg:p-12 text-white border border-slate-800 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-indigo-300 text-xs font-semibold mb-4">
+              <div className="inline-flex items-center gap-2 text-indigo-300 text-xs font-semibold mb-4">
                 <Accessibility className="w-4 h-4" />
                 Inclusive Design Principles
               </div>
@@ -231,12 +228,10 @@ export const LandingPage: React.FC = () => {
 
             <div className="flex justify-center">
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 max-w-sm text-center">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-2xl mx-auto mb-4">
-                  ISL
-                </div>
-                <h4 className="font-bold text-base mb-1">Final Year Engineering Capstone</h4>
-                <p className="text-xs text-slate-300 mb-4">
-                  Demonstrating full-stack engineering, MediaPipe computer vision, Scikit-learn classification, and RAG knowledge retrieval.
+                <BrandMark className="mx-auto mb-4 h-16 w-16 rounded-2xl" />
+                <h4 className="font-bold text-base mb-1">Join Us!</h4>
+                <p className="text-sm text-slate-300 mb-4">
+                  Be part of the team! learn exclusive content and explore opportunities.
                 </p>
                 <Link to="/register">
                   <Button variant="primary" size="sm" className="w-full">

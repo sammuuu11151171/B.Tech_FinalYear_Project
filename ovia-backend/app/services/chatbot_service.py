@@ -3,15 +3,35 @@ import sys
 import json
 from datetime import datetime, timezone
 from typing import List, Optional
+
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-# Ensure rag module is accessible
-rag_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "rag"))
+# --------------------------------------------------
+# Ensure the OVIA RAG module is accessible
+# --------------------------------------------------
+
+# Project root:
+# B.Tech_FinalYear_Project-main/
+project_root = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "..", "..")
+)
+
+# Actual RAG directory:
+# B.Tech_FinalYear_Project-main/ovia-ML/rag/
+rag_dir = os.path.join(project_root, "ovia-ML", "rag")
+
+if not os.path.isfile(os.path.join(rag_dir, "rag_pipeline.py")):
+    raise FileNotFoundError(
+        f"RAG pipeline not found. Expected file: "
+        f"{os.path.join(rag_dir, 'rag_pipeline.py')}"
+    )
+
 if rag_dir not in sys.path:
     sys.path.insert(0, rag_dir)
 
 from rag_pipeline import rag_pipeline
+
 from app.models.chatbot import ChatSession, ChatMessage
 from app.models.user import User
 from app.schemas.chatbot import (
@@ -22,26 +42,38 @@ from app.schemas.chatbot import (
     SourceCitation,
 )
 
+
 def ask_ai_tutor(
     db: Session,
     request: ChatQueryRequest,
     current_user: User,
 ) -> ChatQueryResponse:
+
     # 1. Resolve or create chat session
     session = None
+
     if request.session_id:
-        session = db.query(ChatSession).filter(
-            ChatSession.id == request.session_id,
-            ChatSession.user_id == current_user.id,
-        ).first()
+        session = (
+            db.query(ChatSession)
+            .filter(
+                ChatSession.id == request.session_id,
+                ChatSession.user_id == current_user.id,
+            )
+            .first()
+        )
 
     if not session:
-        # Create a new session with initial query as title snippet
-        title_snippet = (request.message[:40] + "...") if len(request.message) > 40 else request.message
+        title_snippet = (
+            request.message[:40] + "..."
+            if len(request.message) > 40
+            else request.message
+        )
+
         session = ChatSession(
             user_id=current_user.id,
             title=title_snippet,
         )
+
         db.add(session)
         db.flush()
 
@@ -51,80 +83,115 @@ def ask_ai_tutor(
         sender="user",
         message=request.message,
     )
+
     db.add(user_msg)
 
     # 3. Retrieve relevant knowledge documents
-    retrieved_docs = rag_pipeline.retrieve(request.message, top_k=2)
+    retrieved_docs = rag_pipeline.retrieve(
+        request.message,
+        top_k=2,
+    )
 
-    # 4. Generate grounded answer
-    rag_result = rag_pipeline.generate_answer(request.message, retrieved_docs)
+    # 4. Generate a grounded answer
+    rag_result = rag_pipeline.generate_answer(
+        request.message,
+        retrieved_docs,
+    )
 
     # 5. Record tutor's answer
     tutor_msg = ChatMessage(
         session_id=session.id,
         sender="tutor",
         message=rag_result["answer"],
-        retrieved_sources_json=json.dumps(rag_result["sources"]),
+        retrieved_sources_json=json.dumps(
+            rag_result["sources"]
+        ),
     )
+
     db.add(tutor_msg)
     db.commit()
 
+    # 6. Format citations for the frontend
     citations = [
         SourceCitation(
-            title=s["title"],
-            category=s["category"],
-            lesson_id=s.get("lesson_id"),
-            sign_label=s.get("sign_label"),
-            reference_image_url=s.get("reference_image_url"),
-            similarity_score=s["similarity_score"],
-            snippet=s["snippet"],
+            title=source["title"],
+            category=source["category"],
+            lesson_id=source.get("lesson_id"),
+            sign_label=source.get("sign_label"),
+            reference_image_url=source.get(
+                "reference_image_url"
+            ),
+            similarity_score=source["similarity_score"],
+            snippet=source["snippet"],
         )
-        for s in rag_result["sources"]
+        for source in rag_result["sources"]
     ]
 
+    # 7. Return response
     return ChatQueryResponse(
         session_id=session.id,
         answer=rag_result["answer"],
         sources=citations,
-        suggested_signs=rag_result.get("suggested_signs", []),
+        suggested_signs=rag_result.get(
+            "suggested_signs", []
+        ),
         is_grounded=rag_result["is_grounded"],
         provider=rag_result["provider"],
     )
 
-def get_user_chat_sessions(db: Session, user: User) -> List[ChatSessionOut]:
+
+def get_user_chat_sessions(
+    db: Session,
+    user: User,
+) -> List[ChatSessionOut]:
+
     sessions = (
         db.query(ChatSession)
         .filter(ChatSession.user_id == user.id)
         .order_by(ChatSession.updated_at.desc())
         .all()
     )
+
     results = []
-    for s in sessions:
+
+    for session in sessions:
         msg_outs = []
-        for m in s.messages:
+
+        for message in session.messages:
             sources = []
-            if m.retrieved_sources_json:
+
+            if message.retrieved_sources_json:
                 try:
-                    raw_sources = json.loads(m.retrieved_sources_json)
-                    sources = [SourceCitation(**src) for src in raw_sources]
-                except Exception:
+                    raw_sources = json.loads(
+                        message.retrieved_sources_json
+                    )
+
+                    sources = [
+                        SourceCitation(**source)
+                        for source in raw_sources
+                    ]
+
+                except (json.JSONDecodeError, TypeError, ValueError):
                     sources = []
+
             msg_outs.append(
                 ChatMessageOut(
-                    id=m.id,
-                    sender=m.sender,
-                    message=m.message,
+                    id=message.id,
+                    sender=message.sender,
+                    message=message.message,
                     retrieved_sources=sources,
-                    created_at=m.created_at,
+                    created_at=message.created_at,
                 )
             )
+
         results.append(
             ChatSessionOut(
-                id=s.id,
-                title=s.title,
-                created_at=s.created_at,
-                updated_at=s.updated_at,
+                id=session.id,
+                title=session.title,
+                created_at=session.created_at,
+                updated_at=session.updated_at,
                 messages=msg_outs,
             )
         )
+
     return results

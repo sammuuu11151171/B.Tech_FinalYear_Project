@@ -20,7 +20,7 @@ export const CitationCard: React.FC<CitationCardProps> = ({ citation, onSelectSi
             </button>
           ) : citation.title}
         </span>
-        <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 shrink-0">
+        <span className="text-[10px] font-semibold text-emerald-700 shrink-0">
           Grounded Source
         </span>
       </div>
