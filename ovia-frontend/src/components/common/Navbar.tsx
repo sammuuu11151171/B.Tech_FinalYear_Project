@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Sparkles, User as UserIcon, LogOut, LayoutDashboard } from 'lucide-react';
+import { User as UserIcon, LogOut, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { AccessibilityToolbar } from '../accessibility/AccessibilityToolbar';
 import { Button } from './Button';
 import { Badge } from './Badge';
+import { BrandMark } from './BrandMark';
+import { RobotIcon } from './RobotIcon';
 
 export const Navbar: React.FC = () => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -21,15 +23,13 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-indigo-600 rounded-lg p-1">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-700 to-sky-600 flex items-center justify-center text-white shadow-md shadow-indigo-200">
-              <span className="font-bold text-lg tracking-wider">OV</span>
-            </div>
+            <BrandMark className="w-10 h-10 rounded-xl shadow-sm" />
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
+              <span className="font-playfair text-[22px] font-extrabold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
                 OVIA
               </span>
               <span className="text-[10px] font-medium text-slate-500 uppercase tracking-widest hidden sm:inline">
-                Inclusive Learning
+                One Voice Inclusive Access
               </span>
             </div>
           </Link>
@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
               Quizzes
             </Link>
             <Link to="/ai-tutor" className="hover:text-indigo-600 transition-colors flex items-center gap-1.5 text-indigo-600">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+              <RobotIcon className="h-4 w-4 shrink-0" />
               AI Tutor
             </Link>
           </nav>
