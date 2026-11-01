@@ -151,7 +151,7 @@ export const StudentDashboard: React.FC = () => {
 
         {/* Continue Learning Prompt */}
         {summary?.continue_lesson && (
-          <div className="bg-gradient-to-r from-indigo-600 to-sky-700 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-indigo-600 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <Badge variant="indigo" size="sm" className="bg-white/20 text-white border-white/20 mb-3">
                 Continue Learning

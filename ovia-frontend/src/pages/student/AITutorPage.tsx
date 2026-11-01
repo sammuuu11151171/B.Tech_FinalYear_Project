@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Sparkles, BookOpen, HelpCircle } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { chatbotService } from '../../services/chatbotService';
 import type { ChatMessage, SourceCitation } from '../../types';
 import { TopBar } from '../../components/navigation/TopBar';
 import { ChatMessageBubble } from '../../components/chatbot/ChatMessageBubble';
 import { Button } from '../../components/common/Button';
+import { RobotIcon } from '../../components/common/RobotIcon';
 
 export const AITutorPage: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -103,7 +104,7 @@ export const AITutorPage: React.FC = () => {
 
         {isSending && (
           <div className="flex items-center gap-2 text-xs text-slate-400 py-2">
-            <Sparkles className="w-4 h-4 text-indigo-500 animate-spin" />
+            <RobotIcon className="w-4 h-4 text-indigo-500 animate-pulse" />
             <span>Searching curated ISL knowledge base and generating grounded response...</span>
           </div>
         )}
@@ -120,7 +121,7 @@ export const AITutorPage: React.FC = () => {
             <button
               key={idx}
               onClick={() => handleSend(prompt)}
-              className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors shrink-0 cursor-pointer font-medium"
+              className="px-2.5 py-1 text-slate-700 hover:text-indigo-700 transition-colors shrink-0 cursor-pointer font-medium"
             >
               {prompt}
             </button>

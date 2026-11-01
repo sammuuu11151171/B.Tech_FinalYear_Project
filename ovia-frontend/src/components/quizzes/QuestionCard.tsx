@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Camera, CheckCircle2, Sparkles } from 'lucide-react';
+import { Camera, CheckCircle2 } from 'lucide-react';
 import type { QuizQuestion } from '../../types';
 import { Button } from '../common/Button';
 import { Badge } from '../common/Badge';
 import { WebcamPracticeModal } from '../webcam/WebcamPracticeModal';
+import { RobotIcon } from '../common/RobotIcon';
 
 interface QuestionCardProps {
   question: QuizQuestion;
@@ -86,7 +87,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               onClick={() => setShowWebcam(true)}
               variant="primary"
               size="sm"
-              leftIcon={<Sparkles className="w-4 h-4" />}
+              leftIcon={<RobotIcon className="w-4 h-4" />}
             >
               Open Camera to Sign
             </Button>
