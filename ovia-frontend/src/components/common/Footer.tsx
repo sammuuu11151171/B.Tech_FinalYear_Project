@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
               <span className="text-xl font-bold text-white tracking-tight">OVIA</span>
             </div>
             <p className="text-slate-400 text-sm max-w-md leading-relaxed mb-4">
-              AI-Powered Inclusive Learning Portal designed for Deaf and Hard-of-Hearing individuals to learn, practice, and assess Indian Sign Language with real-time feedback.
+              AI-Powered Inclusive Learning Portal designed for Deaf and Mute individuals to learn, practice, and assess Indian Sign Language with real-time feedback.
             </p>
             <div className="flex items-center gap-2 text-xs text-indigo-400">
               <Accessibility className="w-4 h-4" />
